@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.JsonPatch;
 using Northwind.Models.Entity;
 using Raven.Client.Documents.Commands.Batches;
 using Raven.Client.Documents.Operations;
@@ -77,5 +78,14 @@ public static class Patching
         {
             // document was changed since you loaded it
         }
+    }
+
+    public static void JsonPatch2()
+    {
+        var patchesDocument = new JsonPatchDocument();
+        patchesDocument.Replace("FirstName", "first name updated");
+        patchesDocument.Replace("LastName", "last name updated");
+
+        DocumentStoreHolder.Store.Operations.Send(new JsonPatchOperation("employees/8-A", patchesDocument));
     }
 }
