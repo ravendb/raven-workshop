@@ -20,15 +20,12 @@ namespace Hotel.Indexes
         {
             Map = bids => from bid in bids
                 let days = bid.End.DayNumber - bid.Start.DayNumber + 1
-                from day in Enumerable.Range(0, days)
-                let d = bid.Start.AddDays(day)
                 select new Entry
                 {
                     Room = bid.Room,
                     TotalBids = 1,
                     VipBids = bid.Vip ? 1 : 0,
-                    Days = new List<DateOnly> { d }
-
+                    Days = Enumerable.Range(0, days).Select(d => bid.Start.AddDays(d)).ToList()
                 };
 
             Reduce = results => from result in results
