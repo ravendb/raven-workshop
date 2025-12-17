@@ -55,6 +55,11 @@ namespace Northwind.Features.Indexes.IndexingAttachments
                         Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "Features", "Indexes", "IndexingAttachments", $"{nameof(Extract)}.cs"))
                 }
             };
+
+            AdditionalAssemblies = new HashSet<AdditionalAssembly>
+            {
+                AdditionalAssembly.FromRuntime("System.IO.Compression", new HashSet<string> { "System.IO.Compression" })
+            };
         }
     }
 }
