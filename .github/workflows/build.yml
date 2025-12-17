@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          6.0.x
+          7.0.x
+    
+    - name: Build Northwind
+      run: dotnet build Northwind/Northwind.sln
+    
+    - name: Build NorthwindApi
+      run: dotnet build NorthwindApi/NorthwindApi.sln
+    
+    - name: Build Hotel
+      run: dotnet build Hotel/Hotel/Hotel.sln
