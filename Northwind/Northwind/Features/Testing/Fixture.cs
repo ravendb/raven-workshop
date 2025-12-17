@@ -19,7 +19,7 @@ namespace Northwind.Features.Testing
         {
             var testServerOptions = new TestServerOptions
             {
-                FrameworkVersion = null, // user latest, optional
+                FrameworkVersion = null, // use latest, optional
                 Licensing = new ServerOptions.LicensingOptions
                 {
                     ThrowOnInvalidOrMissingLicense = false
