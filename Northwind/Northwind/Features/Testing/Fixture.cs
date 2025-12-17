@@ -1,5 +1,6 @@
 ﻿using Raven.Client.Documents;
 using Raven.Client.Documents.Indexes;
+using Raven.Embedded;
 using Raven.TestDriver;
 using System.Collections.Generic;
 
@@ -14,7 +15,11 @@ namespace Northwind.Features.Testing
         {
             var testServerOptions = new TestServerOptions
             {
-                FrameworkVersion = null // user latest, optional
+                FrameworkVersion = null, // user latest, optional
+                Licensing = new ServerOptions.LicensingOptions
+                {
+                    ThrowOnInvalidOrMissingLicense = false
+                }
             };
 
             ConfigureServer(testServerOptions);
