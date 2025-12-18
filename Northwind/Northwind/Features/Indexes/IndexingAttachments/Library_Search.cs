@@ -6,8 +6,6 @@ using Raven.Client.Documents.Indexes;
 
 namespace Northwind.Features.Indexes.IndexingAttachments
 {
-    // todo : find example with word, excel, pdf
-
     public class Library_Search : AbstractMultiMapIndexCreationTask
     {
         public class Entry
@@ -17,12 +15,11 @@ namespace Northwind.Features.Indexes.IndexingAttachments
 
         public Library_Search()
         {
-            // todo : rename to books
-            AddMap<Book>(employees =>
-                from emp in employees
-                let txts = AttachmentsFor(emp)
+            AddMap<Book>(books =>
+                from book in books
+                let txts = AttachmentsFor(book)
                             .Where(att => att.Name.EndsWith(".txt"))
-                            .Select(att => LoadAttachment(emp, att.Name).GetContentAsString())
+                            .Select(att => LoadAttachment(book, att.Name).GetContentAsString())
 
                 from txt in txts
                 select new
@@ -31,11 +28,11 @@ namespace Northwind.Features.Indexes.IndexingAttachments
                 }
             );
 
-            AddMap<Book>(employees =>
-                from emp in employees
-                let zips = AttachmentsFor(emp)
+            AddMap<Book>(books =>
+                from book in books
+                let zips = AttachmentsFor(book)
                     .Where(att => att.Name.EndsWith(".zip"))
-                    .Select(att => LoadAttachment(emp, att.Name).GetContentAsStream())
+                    .Select(att => LoadAttachment(book, att.Name).GetContentAsStream())
 
                 from zip in zips
                 let content = Extract.DataFromZipFile(zip)
@@ -56,10 +53,7 @@ namespace Northwind.Features.Indexes.IndexingAttachments
                 }
             };
 
-            AdditionalAssemblies = new HashSet<AdditionalAssembly>
-            {
-                AdditionalAssembly.FromRuntime("System.IO.Compression", new HashSet<string> { "System.IO.Compression" })
-            };
+            AdditionalAssemblies = [AdditionalAssembly.FromRuntime("System.IO.Compression", ["System.IO.Compression"])];
         }
     }
 }
