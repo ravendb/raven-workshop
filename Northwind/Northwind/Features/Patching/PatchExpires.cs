@@ -61,7 +61,7 @@ public static class PatchExpires
                 null, 
                 new PatchRequest
                 {
-                    Script = $"this['@metadata']['@expires'] = '{DateTime.UtcNow.AddMinutes(1).ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ")}'"
+                    Script = $"this['@metadata']['@expires'] = '{DateTime.UtcNow.AddMinutes(1):yyyy-MM-ddTHH:mm:ss.fffffffZ}'"
                 }),
         null);
 
@@ -123,5 +123,11 @@ public static class PatchExpires
         var patchesDocument = new JsonPatchDocument();
         patchesDocument.Add("/@metadata/@expires", DateTime.UtcNow.AddMinutes(1).ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ"));
         DocumentStoreHolder.Store.Operations.Send(new JsonPatchOperation("users/1", patchesDocument));
+    }
+
+    public class User
+    {
+        public string Id { get; set; }
+        public string Email { get; set; }
     }
 }
