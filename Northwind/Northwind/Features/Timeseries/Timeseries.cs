@@ -20,7 +20,7 @@ namespace Northwind.Features.Timeseries
             using var session = DocumentStoreHolder.Store.OpenSession();
 
             ISessionDocumentTimeSeries ts = session.TimeSeriesFor("shippers/3-A", "Likes");
-            List<double> values = new List<double> { 1.1, 2.15 };
+            List<double> values = [1.1, 2.15];
             ts.Append(DateTime.UtcNow, values);
 
             session.SaveChanges();

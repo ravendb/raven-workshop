@@ -61,7 +61,7 @@ namespace Northwind.Features.Events
                     Urls = new[] { "http://127.0.0.1:8080" },
                     Database = "demo"
                 };
-
+                
                 //store.OnBeforeConversionToDocument += (sender, eventArgs) =>
                 //{
                 //    if (eventArgs.Entity is Employee employee)
@@ -81,6 +81,7 @@ namespace Northwind.Features.Events
                 // var http = ctx.GetRequiredService<IHttpContextAccessor>();
                 // var identity = http.HttpContext?.User.Identity;
                 //
+                
                 store.OnBeforeStore += (sender, e) =>
                 {
                     if (e.Session.GetChangeVectorFor(e.Entity) == null)
@@ -117,7 +118,7 @@ namespace Northwind.Features.Events
                         qe.AndAlso().Where(x => x.Tenant == "[identity.Name]");
                     }
                 };
-
+                
                 // app-level soft delete implementation 
                 store.OnBeforeQuery += (sender, e) =>
                 {

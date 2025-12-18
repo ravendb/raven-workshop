@@ -10,7 +10,7 @@ namespace Northwind.Features.Lazy
 {
     public class Lazy
     {
-        public void ManyCalls()
+        public static void ManyCalls()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -27,7 +27,7 @@ namespace Northwind.Features.Lazy
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void ManyCallsOptimizedViaLazily()
+        public static void ManyCallsOptimizedViaLazily()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 

@@ -64,13 +64,15 @@ public static class Caching
         while (true)
         {
             using (var session = store.OpenSession())
-            using (session.Advanced.DocumentStore.AggressivelyCacheFor(TimeSpan.FromSeconds(20)))
             {
-                var orders = session.Query<Order>()
-                    .Where(x => x.OrderedAt < DateTime.Today)
-                    .ToList();
+                using (session.Advanced.DocumentStore.AggressivelyCacheFor(TimeSpan.FromSeconds(20)))
+                {
+                    var orders = session.Query<Order>()
+                        .Where(x => x.OrderedAt < DateTime.Today)
+                        .ToList();
 
-                Console.WriteLine($"Total number of orders: {orders.Count}");
+                    Console.WriteLine($"Total number of orders: {orders.Count}");
+                }
             }
 
             Console.ReadLine();

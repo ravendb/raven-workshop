@@ -8,7 +8,7 @@ namespace Northwind.Features.Subscriptions
 {
     public class SubscriptionLondonEmployees
     {
-        public async Task Consume()
+        public static async Task Consume()
         {
             // create subscription if it does not exist
             try
@@ -25,14 +25,17 @@ namespace Northwind.Features.Subscriptions
             }
 
             // consume subscription
-            var subscription = DocumentStoreHolder.Store.Subscriptions.GetSubscriptionWorker<Employee>(
+            await using var subscription = DocumentStoreHolder.Store.Subscriptions.GetSubscriptionWorker<Employee>(
                 new SubscriptionWorkerOptions("LondonEmployees"));
+            
             await subscription.Run(batch =>
             {
+                Console.WriteLine("Batch start:");
                 foreach (var item in batch.Items)
                 {
                     Console.WriteLine(item.Id);
                 }
+                Console.WriteLine("Batch end:");
             });
         }
     }

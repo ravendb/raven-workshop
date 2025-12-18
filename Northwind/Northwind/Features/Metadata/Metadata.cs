@@ -15,7 +15,7 @@ namespace Northwind.Features.Metadata
             using var session = DocumentStoreHolder.Store.OpenSession();
             Employee emp = session.Load<Employee>("employees/8-A");
 
-            session.Advanced.GetMetadataFor(emp)["IsDeleted"] = "true";
+            session.Advanced.GetMetadataFor(emp)["IsDeleted"] = "false";
             
             // todo: add example with json structure being stored to metadata
 
@@ -43,7 +43,7 @@ namespace Northwind.Features.Metadata
                 .Where(x => x.Id == "employees/8-A")
                 .Select(x => RavenQuery.Metadata(x)).SingleOrDefault()
                 .As<IMetadataDictionary>();
-
+            
             if (metadata.ContainsKey("IsDeleted"))
             {
                 Console.WriteLine($"Entity contains metadata key IsDeleted: {metadata["IsDeleted"]}");

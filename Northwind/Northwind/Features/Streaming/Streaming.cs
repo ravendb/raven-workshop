@@ -17,8 +17,8 @@ namespace Northwind.Features.Streaming
 
             // Define a query on a collection
             IRavenQueryable<Employee> query = session
-            .Query<Employee>()
-            .Where(x => x.FirstName == "Robert");
+                .Query<Employee>()
+                .Where(x => x.FirstName == "Robert");
 
             // Call 'Stream' to execute the query
             // Optionally, pass an 'out param' for getting the query stats

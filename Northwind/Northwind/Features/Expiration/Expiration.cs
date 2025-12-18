@@ -8,7 +8,7 @@ namespace Northwind.Features.Expiration
 
     public class Expiration
     {
-        public void SetExpiration()
+        public static void SetExpiration()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 

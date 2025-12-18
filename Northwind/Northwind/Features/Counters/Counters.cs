@@ -7,7 +7,7 @@ namespace Northwind.Features.Counters
 {
     public class Counters
     {
-        public void GetCounters()
+        public static void GetCounters()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -18,7 +18,7 @@ namespace Northwind.Features.Counters
             Console.WriteLine(twoStars);
         }
 
-        public void UpdateCounters()
+        public static void UpdateCounters()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
