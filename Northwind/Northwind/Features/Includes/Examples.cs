@@ -19,8 +19,8 @@ namespace Northwind.Features
             using var session = store.OpenSession();
 
             var orders = session.Query<Order>()
-                .Include("Employee")
-                .Include("Company")
+                .Include(nameof(Order.Employee))
+                .Include(nameof(Order.Company))
                 .Where(order => order.Company == "Companies/2-A")
                 .OrderByDescending(order => order.OrderedAt)
                 .Take(10)
