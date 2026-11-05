@@ -9,13 +9,13 @@ namespace Hotel
         {
             return new DocumentStore
             {
-                Urls = new[] { "http://127.0.0.1:8080" },
+                Urls = ["http://127.0.0.1:8080"],
                 Database = "hotel"
             };
         }
 
         private static readonly Lazy<IDocumentStore> LazyStore =
-            new Lazy<IDocumentStore>(() =>
+            new(() =>
             {
                 IDocumentStore store = GetStore();
 
