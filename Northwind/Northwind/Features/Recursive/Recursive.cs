@@ -11,7 +11,7 @@ namespace Northwind.Features.Recursive
 {
     public class Recursive
     {
-        public void ManagerSearch()
+        public static void ManagerSearch()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 

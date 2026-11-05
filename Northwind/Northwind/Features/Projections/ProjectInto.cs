@@ -60,7 +60,7 @@ namespace Northwind.Features.Projections
 
     public class ProjectInto
     {
-        public void Example1()
+        public static void Example1()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -76,7 +76,7 @@ namespace Northwind.Features.Projections
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void Example2()
+        public static void Example2()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 

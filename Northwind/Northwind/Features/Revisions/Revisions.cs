@@ -14,7 +14,7 @@ namespace Northwind.Features.Revisions
 {
     public class Revisions
     {
-        public void ForceCreation()
+        public static void ForceCreation()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -35,7 +35,7 @@ namespace Northwind.Features.Revisions
             session.SaveChanges();
         }
 
-        public void UndoRedoSim()
+        public static void UndoRedoSim()
         {
             string employeeId;
             Employee employee;
@@ -81,7 +81,7 @@ namespace Northwind.Features.Revisions
             }
         }
 
-        public void GetRevisionsForEmployee()
+        public static void GetRevisionsForEmployee()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -93,7 +93,7 @@ namespace Northwind.Features.Revisions
             }
         }
 
-        public void GetRevisionsForOrder()
+        public static void GetRevisionsForOrder()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -105,7 +105,7 @@ namespace Northwind.Features.Revisions
             }
         }
 
-        public void GetChangeVectorsForRevisions()
+        public static void GetChangeVectorsForRevisions()
         {
             List<string> vectors = new List<string>();
 
@@ -122,7 +122,7 @@ namespace Northwind.Features.Revisions
             }
         }
 
-        public void ExtractChanges()
+        public static void ExtractChanges()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -139,7 +139,7 @@ namespace Northwind.Features.Revisions
         {
             string id = "employees/1-A";
 
-            var revisions = this.GetRevisions<Employee>(id);
+            var revisions = GetRevisions<Employee>(id);
 
             Console.WriteLine($"Revisions for {id}");
 
@@ -149,7 +149,7 @@ namespace Northwind.Features.Revisions
             }
         }
 
-        public List<T> GetRevisions<T>(string id)
+        public static List<T> GetRevisions<T>(string id)
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
@@ -181,7 +181,7 @@ namespace Northwind.Features.Revisions
             {
                 string id = "employees/1-A";
 
-                var revisions = this.GetRevisionsMetadata(id);
+                var revisions = GetRevisionsMetadata(id);
 
                 Console.WriteLine($"Revisions for {id}");
 
@@ -197,7 +197,7 @@ namespace Northwind.Features.Revisions
             }
         }
 
-        public List<IDictionary<string, object>> GetRevisionsMetadata(string id)
+        public static List<IDictionary<string, object>> GetRevisionsMetadata(string id)
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
@@ -223,7 +223,7 @@ namespace Northwind.Features.Revisions
             }
         }
 
-        public void Print()
+        public static void Print()
         {
             string id = "employees/1-A";
 

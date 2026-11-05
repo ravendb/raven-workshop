@@ -12,7 +12,7 @@ namespace Northwind.Features.Misc
 {
     public class Repro
     {
-        public void Execute()
+        public static void Execute()
         {
             var store = new DocumentStore
             {

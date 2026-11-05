@@ -15,7 +15,4 @@ public static class Changes
 
         Console.ReadLine();
     }
-
-    // TODO: examples for other cases (collection, index, ...)
-    // https://ravendb.net/docs/article-page/5.4/Csharp/client-api/changes/what-is-changes-api
 }

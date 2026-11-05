@@ -7,7 +7,7 @@ namespace Northwind.Features.Attachments
 {
     public class Attachments
     {
-        public void GetAttachmentNames()
+        public static void GetAttachmentNames()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -24,7 +24,7 @@ namespace Northwind.Features.Attachments
                 Console.WriteLine($"{name} \t {contentType} \t {hash} \t {size}");
             }
         }
-        public void GetAttachmentContent()
+        public static void GetAttachmentContent()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
             
@@ -45,7 +45,7 @@ namespace Northwind.Features.Attachments
             Console.WriteLine($"{ms.Length} \t {name} \t {contentType} \t {hash} \t {size} \t {documentId} \t {changeVector}");
         }
 
-        public void StoreAttachment()
+        public static void StoreAttachment()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
             using FileStream file1 = File.Open("./Features/Attachments/att1.txt", FileMode.Open);

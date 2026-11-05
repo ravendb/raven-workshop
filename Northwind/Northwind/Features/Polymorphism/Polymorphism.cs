@@ -8,7 +8,7 @@ namespace Northwind.Features.Polymorphism
 {
     public class Polymorphism
     {
-        public void Seed()
+        public static void Seed()
         {
             Shipment shipment = new Shipment();
             shipment.Items.Add(new Car());
@@ -20,7 +20,7 @@ namespace Northwind.Features.Polymorphism
             session.SaveChanges();
         }
 
-        public void SeedSpecial()
+        public static void SeedSpecial()
         {
             SpecialShipment ss1 = new SpecialShipment
             {

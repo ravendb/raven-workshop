@@ -10,7 +10,7 @@ namespace Northwind.Features.Timings
 {
     public class Timings
     {
-        public void GetTimings()
+        public static void GetTimings()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 

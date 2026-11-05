@@ -10,7 +10,7 @@ namespace Northwind.Features.ClusterWideTransactions
         // ensure there is just one user with first name John
         // execute this method once and inspect database
         // execute it one more time to get exception
-        public void ClusterWideTransaction_Pre_5_2()
+        public static void ClusterWideTransaction_Pre_5_2()
         {
             using var session = DocumentStoreHolder.Store.OpenSession(
                 new SessionOptions
@@ -37,7 +37,7 @@ namespace Northwind.Features.ClusterWideTransactions
         // ensure there is just one user with first name John
         // execute this method once and inspect database
         // execute it one more time to get exception
-        public void ClusterWideTransaction()
+        public static void ClusterWideTransaction()
         {
             using var session = DocumentStoreHolder.Store.OpenSession(
                 new SessionOptions { TransactionMode = TransactionMode.ClusterWide });
@@ -77,7 +77,7 @@ namespace Northwind.Features.ClusterWideTransactions
         // ensure there is just one user with first name John
         // execute this method once and inspect database
         // execute it one more time to get exception
-        public void ClusterWideTransaction_Without_Reservation()
+        public static void ClusterWideTransaction_Without_Reservation()
         {
             using var session = DocumentStoreHolder.Store.OpenSession(
                 new SessionOptions { TransactionMode = TransactionMode.ClusterWide });

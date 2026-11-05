@@ -5,7 +5,7 @@ namespace Northwind.Features.Transactions
 {
     public class Transactions
     {
-        public void LocalNodeTransaction()
+        public static void LocalNodeTransaction()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -15,7 +15,7 @@ namespace Northwind.Features.Transactions
             session.SaveChanges();
         }
 
-        public void ClusterWideTransaction()
+        public static void ClusterWideTransaction()
         {
             using var session = DocumentStoreHolder.Store.OpenSession(
                 new SessionOptions { TransactionMode = TransactionMode.ClusterWide });
@@ -26,7 +26,7 @@ namespace Northwind.Features.Transactions
             session.SaveChanges();
         }
 
-        public void WaitForReplication()
+        public static void WaitForReplication()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 

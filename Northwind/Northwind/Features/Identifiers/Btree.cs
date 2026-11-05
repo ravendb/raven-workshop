@@ -9,7 +9,7 @@ namespace Northwind.Features.Identifiers
 
     public class Btree
     {
-        public void Balanced()
+        public static void Balanced()
         {
             using var bulk = DocumentStoreHolder.Store.BulkInsert();
 
@@ -23,7 +23,7 @@ namespace Northwind.Features.Identifiers
             }
         }
 
-        public void Unbalanced()
+        public static void Unbalanced()
         {
             using var bulk = DocumentStoreHolder.Store.BulkInsert();
 
@@ -38,7 +38,7 @@ namespace Northwind.Features.Identifiers
             }
         }
 
-        public void Nulids()
+        public static void Nulids()
         {
             var rng = new MonotonicUlidRng();
 
@@ -55,7 +55,7 @@ namespace Northwind.Features.Identifiers
             }
         }
 
-        public void RTcomb()
+        public static void RTcomb()
         {
             using var bulk = DocumentStoreHolder.Store.BulkInsert();
 
@@ -70,7 +70,7 @@ namespace Northwind.Features.Identifiers
             }
         }
 
-        public void Youtube()
+        public static void Youtube()
         {
             using var bulk = DocumentStoreHolder.Store.BulkInsert();
 

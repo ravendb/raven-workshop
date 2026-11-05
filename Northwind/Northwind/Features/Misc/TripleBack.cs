@@ -8,7 +8,7 @@ namespace Northwind.Features.Misc
 {
     public class TripleBack
     {
-        public void Do()
+        public static void Do()
         {
             var session = DocumentStoreHolder.Store.OpenSession();
 

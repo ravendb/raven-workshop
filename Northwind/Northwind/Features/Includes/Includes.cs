@@ -11,7 +11,7 @@ namespace Northwind.Features.Includes
 {
     public class Includes
     {
-        public void LoadWithInclude()
+        public static void LoadWithInclude()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -24,7 +24,7 @@ namespace Northwind.Features.Includes
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void ManyCalls()
+        public static void ManyCalls()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -42,7 +42,7 @@ namespace Northwind.Features.Includes
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void ManyCallsOptimizedViaInclude()
+        public static void ManyCallsOptimizedViaInclude()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -62,7 +62,7 @@ namespace Northwind.Features.Includes
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void Select_N_plus_1()
+        public static void Select_N_plus_1()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
             session.Advanced.MaxNumberOfRequestsPerSession = 80;
@@ -85,7 +85,7 @@ namespace Northwind.Features.Includes
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void Select_N_plus_1_solved()
+        public static void Select_N_plus_1_solved()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 

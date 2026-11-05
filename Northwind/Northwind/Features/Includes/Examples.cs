@@ -12,7 +12,7 @@ namespace Northwind.Features
 {
     public partial class Examples
     {
-        public void IncludeViaPath()
+        public static void IncludeViaPath()
         {
             var store = DocumentStoreHolder.GetStore().Initialize();
 
@@ -36,7 +36,7 @@ namespace Northwind.Features
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void IncludeViaPathList(string[] includes)
+        public static void IncludeViaPathList(string[] includes)
         {
             var store = DocumentStoreHolder.GetStore().Initialize();
 
@@ -63,7 +63,7 @@ namespace Northwind.Features
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void LoadAndIncludeViaPathList(string[] includes)
+        public static void LoadAndIncludeViaPathList(string[] includes)
         {
             var store = DocumentStoreHolder.GetStore().Initialize();
 
@@ -95,7 +95,7 @@ namespace Northwind.Features
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void SecondLevelInclude2()
+        public static void SecondLevelInclude2()
         {
             var store = DocumentStoreHolder.GetStore().Initialize();
 
@@ -127,7 +127,7 @@ select output(o)
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void SecondLevelProjection()
+        public static void SecondLevelProjection()
         {
             var store = DocumentStoreHolder.GetStore().Initialize();
 
@@ -151,7 +151,7 @@ select output(o)
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void ProjectionViaJS()
+        public static void ProjectionViaJS()
         {
             var store = DocumentStoreHolder.GetStore().Initialize();
 
@@ -199,7 +199,7 @@ select output(o)
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void SecondLevelInclude()
+        public static void SecondLevelInclude()
         {
             var store = DocumentStoreHolder.GetStore().Initialize();
 
@@ -234,7 +234,7 @@ select output(o)
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void OrdersProjection(string companyName)
+        public static void OrdersProjection(string companyName)
         {
             var store = DocumentStoreHolder.GetStore().Initialize();
 
@@ -259,7 +259,7 @@ select output(o)
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void OrdersProjectionJustFields(string companyName)
+        public static void OrdersProjectionJustFields(string companyName)
         {
             var store = DocumentStoreHolder.GetStore().Initialize();
 
@@ -289,7 +289,7 @@ select output(o)
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void OrdersInclude(string companyName)
+        public static void OrdersInclude(string companyName)
         {
             var store = DocumentStoreHolder.GetStore().Initialize();
 

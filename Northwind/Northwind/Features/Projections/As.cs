@@ -33,7 +33,7 @@ namespace Northwind.Features.Projections
     public class As
     {
         // todo : test these two
-        public void Example1()
+        public static void Example1()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 

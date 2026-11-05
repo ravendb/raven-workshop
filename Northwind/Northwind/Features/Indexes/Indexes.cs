@@ -5,7 +5,7 @@ namespace Northwind.Features.Indexes
 {
     public class Indexes
     {
-        public void GetStaleIndexes()
+        public static void GetStaleIndexes()
         {
             var stats = DocumentStoreHolder.Store.Maintenance.Send(new GetStatisticsOperation());
 

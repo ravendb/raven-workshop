@@ -7,7 +7,7 @@ namespace Northwind.Features
 {
     public partial class Examples
     {
-        public void LazyExample(string[] includes)
+        public static void LazyExample(string[] includes)
         {
             var store = DocumentStoreHolder.GetStore().Initialize();
 

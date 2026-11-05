@@ -11,7 +11,7 @@ namespace Northwind.Features.GraphQueries
 {
     public class GraphQueries
     {
-        public void Q1()
+        public static void Q1()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -27,7 +27,7 @@ namespace Northwind.Features.GraphQueries
             Console.WriteLine(result[0]);
         }
 
-        public void Q2()
+        public static void Q2()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 

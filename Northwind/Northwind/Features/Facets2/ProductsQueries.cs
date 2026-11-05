@@ -12,7 +12,7 @@ namespace Northwind.Features.Facets2
 {
     public class ProductsQueries
     {
-        public List<Product> GetProducts(bool? available, IDictionary<string, IList<string>> filters)
+        public static List<Product> GetProducts(bool? available, IDictionary<string, IList<string>> filters)
         {
             using var session = FacetsStoreHolder.Store.OpenSession();
 
@@ -50,7 +50,7 @@ namespace Northwind.Features.Facets2
             return query.AggregateBy(GetFacets()).Execute();
         }
 
-        private IEnumerable<Facet> GetFacets()
+        private static IEnumerable<Facet> GetFacets()
         {
             var facets = new List<Facet>();
 

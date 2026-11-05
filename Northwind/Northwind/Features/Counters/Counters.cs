@@ -40,7 +40,7 @@ namespace Northwind.Features.Counters
             session.SaveChanges();
         }
 
-        public async Task ConcurrentUpdates()
+        public static async Task ConcurrentUpdates()
         {
             for (int i = 0; i < 100; i++)
             {

@@ -962,7 +962,7 @@ public class FrenchStemmer
      * @param ch the char to test
      * @return bool - true if the char is a vowel
      */
-    private bool IsVowel(char ch)
+    private static bool IsVowel(char ch)
     {
         switch (ch)
         {
@@ -1128,7 +1128,7 @@ public class FrenchStemmer
      *
      * @return bool - true if, and only if, the given term consists in letters.
      */
-    private bool IsStemmable(String term)
+    private static bool IsStemmable(String term)
     {
         bool upper = false;
         int first = -1;

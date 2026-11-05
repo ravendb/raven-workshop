@@ -44,7 +44,7 @@ namespace Northwind.Features.Lazy
             Console.WriteLine($"Total number of requests: {session.Advanced.NumberOfRequests}");
         }
 
-        public void ExecutePending()
+        public static void ExecutePending()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 

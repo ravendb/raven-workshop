@@ -9,7 +9,7 @@ namespace Northwind.Features.Identifiers
 {
     public class Identifiers
     {
-        public void NullId()
+        public static void NullId()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -22,7 +22,7 @@ namespace Northwind.Features.Identifiers
             session.SaveChanges();
         }
 
-        public void EmptyStringId()
+        public static void EmptyStringId()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -35,7 +35,7 @@ namespace Northwind.Features.Identifiers
             session.SaveChanges();
         }
 
-        public void ValueId()
+        public static void ValueId()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -48,7 +48,7 @@ namespace Northwind.Features.Identifiers
             session.SaveChanges();
         }
 
-        public void PrefixId()
+        public static void PrefixId()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -61,7 +61,7 @@ namespace Northwind.Features.Identifiers
             session.SaveChanges();
         }
 
-        public void SlashId()
+        public static void SlashId()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -74,7 +74,7 @@ namespace Northwind.Features.Identifiers
             session.SaveChanges();
         }
 
-        public void VerticalBarId()
+        public static void VerticalBarId()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 
@@ -87,7 +87,7 @@ namespace Northwind.Features.Identifiers
             session.SaveChanges();
         }
 
-        public void CollectionVerticalBarId()
+        public static void CollectionVerticalBarId()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 

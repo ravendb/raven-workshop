@@ -2,6 +2,7 @@
 using Northwind.Models.Entity;
 using Raven.Client.Documents.Commands.Batches;
 using Raven.Client.Documents.Operations;
+using Raven.Client.Documents.Session;
 using Raven.Client.Exceptions;
 
 namespace Northwind.Features.OptimisticConcurrency;
@@ -21,7 +22,8 @@ public static class OptimisticConcurrency
     public static void UseOptimisticConcurrency()
     {
         using var session = DocumentStoreHolder.Store.OpenSession();
-        session.Advanced.UseOptimisticConcurrency = true; // <--- this line added
+        session.Advanced.OptimisticConcurrencyMode = OptimisticConcurrencyMode.Writes; // <--- this line added
+        session.Load<Company>("companies/1-A");
         var order = session.Load<Order>("orders/1-A");
         order.Freight++; // breakpoint
         session.SaveChanges();
@@ -33,7 +35,7 @@ public static class OptimisticConcurrency
         try
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
-            session.Advanced.UseOptimisticConcurrency = true;
+            session.Advanced.OptimisticConcurrencyMode = OptimisticConcurrencyMode.Writes; // <--- this line added
             var order = session.Load<Order>("orders/1-A");
             order.Freight++; // breakpoint
             session.SaveChanges();
@@ -65,7 +67,7 @@ public static class OptimisticConcurrency
         try
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
-            session.Advanced.UseOptimisticConcurrency = true;
+            session.Advanced.OptimisticConcurrencyMode = OptimisticConcurrencyMode.Writes; // <--- this line added
             var order = session.Load<Order>("orders/1-A");
             //order.Freight++; // breakpoint
             session.Advanced.Patch(order, o => o.Freight, order.Freight+1);
@@ -78,17 +80,12 @@ public static class OptimisticConcurrency
         }
     }
 
-    // TODO
-    //from "Employees" update {
-    //    this.Name = this.FirstName + " " + this.LastName;        
-    //}
-
     public static void UseDeferredPatch()
     {
         try
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
-            session.Advanced.UseOptimisticConcurrency = true;
+            session.Advanced.OptimisticConcurrencyMode = OptimisticConcurrencyMode.Writes; // <--- this line added
             var order = session.Load<Order>("orders/1-A");
             //order.Freight++; // breakpoint
             session.Advanced.Patch(order, o => o.Freight, order.Freight+1);

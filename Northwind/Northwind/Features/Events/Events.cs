@@ -11,7 +11,7 @@ namespace Northwind.Features.Events
 {
     public class Events
     {
-        public void Create()
+        public static void Create()
         {
             using var session = Dsh.Store.OpenSession();
 
@@ -23,7 +23,7 @@ namespace Northwind.Features.Events
             session.SaveChanges();
         }
 
-        public void Delete()
+        public static void Delete()
         {
             using var session = Dsh.Store.OpenSession();
             var emp = session.Load<Employee>("employees/8-A");
@@ -31,7 +31,7 @@ namespace Northwind.Features.Events
             session.SaveChanges();
         }
 
-        public void Query()
+        public static void Query()
         {
             using var session = Dsh.Store.OpenSession();
 
@@ -40,7 +40,7 @@ namespace Northwind.Features.Events
             Console.WriteLine(employees.Count);
         }
 
-        public void Query3()
+        public static void Query3()
         {
             using var session = Dsh.Store.OpenSession();
             //session.Advanced.OnBeforeStore +=

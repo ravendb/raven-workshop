@@ -5,7 +5,7 @@ namespace Northwind.Features.Migrations
 {
     public class Migrations
     {
-        public void MissingProperty()
+        public static void MissingProperty()
         {
             using var session = DocumentStoreHolder.Store.OpenSession();
 

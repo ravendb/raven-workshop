@@ -8,7 +8,7 @@ namespace Northwind.Features.Sorting
 {
     public class Sorting
     {
-        public void Seed()
+        public static void Seed()
         {
             Candidate highschool = new Candidate
             {
